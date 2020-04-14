@@ -23,7 +23,7 @@ namespace BinaryTree.API.Controllers
         {
             try
             {
-                BTreeListResponseDTO binaryTreeListResponse = await _binaryTreeService.CreateBinaryTreeFromList(binaryListTree);
+                BTreeListResponseDTO binaryTreeListResponse = await _binaryTreeService.CreateBTreeFromListAsync(binaryListTree);
                 return Ok(binaryTreeListResponse);
             }
             catch (ArgumentNullException e)
@@ -48,7 +48,7 @@ namespace BinaryTree.API.Controllers
                 modelDto.NumberA = numberA;
                 modelDto.NumberB = numberB;
 
-                BTreeLowestCommonAncestorResponseDTO response = await _binaryTreeService.GetLowestCommonAncestor(modelDto);
+                BTreeLowestCommonAncestorResponseDTO response = await _binaryTreeService.GetBTreeLowestCommonAncestorAsync(modelDto);
 
                 return Ok(response);
             }

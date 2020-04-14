@@ -16,7 +16,7 @@ namespace BinaryTree.API.Services
             _binaryTreeRepository = binaryTreeRepository;
         }
 
-        public async Task<BTreeListResponseDTO> CreateBinaryTreeFromList(BTreeListRequestDTO listDTO)
+        public async Task<BTreeListResponseDTO> CreateBTreeFromListAsync(BTreeListRequestDTO listDTO)
         {
             if (listDTO.List.Count == 0)
                 throw new ArgumentNullException("Numbers must be a list of integers");
@@ -25,7 +25,7 @@ namespace BinaryTree.API.Services
 
             binaryTree.AddNodesFromList(listDTO.List);
 
-            await _binaryTreeRepository.SaveBinaryTreeAsync(binaryTree);
+            await _binaryTreeRepository.SaveBTreeAsync(binaryTree);
 
             BTreeListResponseDTO response = new BTreeListResponseDTO();
             response.UUID = binaryTree.UUID;
@@ -33,9 +33,9 @@ namespace BinaryTree.API.Services
             return response;
         }
 
-        public async Task<BTreeLowestCommonAncestorResponseDTO> GetLowestCommonAncestor(BTreeLowestCommonAncestorRequestDTO lowestAncestorDTO)
+        public async Task<BTreeLowestCommonAncestorResponseDTO> GetBTreeLowestCommonAncestorAsync(BTreeLowestCommonAncestorRequestDTO lowestAncestorDTO)
         {
-            BTree binaryTree = await _binaryTreeRepository.GetBinaryTreeAsync(lowestAncestorDTO.UUID);
+            BTree binaryTree = await _binaryTreeRepository.GetBTreeAsync(lowestAncestorDTO.UUID);
 
             List<Node> nodePathNumberA = binaryTree.GetNodePath(lowestAncestorDTO.NumberA);
             List<Node> nodePathNumberB = binaryTree.GetNodePath(lowestAncestorDTO.NumberB);

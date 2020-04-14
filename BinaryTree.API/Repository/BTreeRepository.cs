@@ -17,7 +17,7 @@ namespace BinaryTree.API.Repository
             _redisCache = redisCache;
         }
 
-        public async Task<BTree> GetBinaryTreeAsync(string uuid)
+        public async Task<BTree> GetBTreeAsync(string uuid)
         {
             string concatTreeNodeList = await _redisCache.GetStringAsync(uuid);
 
@@ -35,7 +35,7 @@ namespace BinaryTree.API.Repository
             return binaryTree;
         }
 
-        public async Task SaveBinaryTreeAsync(BTree binaryTree)
+        public async Task SaveBTreeAsync(BTree binaryTree)
         {
             List<int> treeNodeList = binaryTree.GetTraversalPreOrder();
             string concatTreeNodeList = string.Join(NODE_LIST_STR_SEPARATOR, treeNodeList);

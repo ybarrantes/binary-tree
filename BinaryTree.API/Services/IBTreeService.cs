@@ -5,8 +5,8 @@ namespace BinaryTree.API.Services
 {
     public interface IBTreeService
     {
-        public Task<BTreeListResponseDTO> CreateBinaryTreeFromList(BTreeListRequestDTO listDTO);
+        public Task<BTreeListResponseDTO> CreateBTreeFromListAsync(BTreeListRequestDTO listDTO);
 
-        public Task<BTreeLowestCommonAncestorResponseDTO> GetLowestCommonAncestor(BTreeLowestCommonAncestorRequestDTO lowestAncestorDTO);
+        public Task<BTreeLowestCommonAncestorResponseDTO> GetBTreeLowestCommonAncestorAsync(BTreeLowestCommonAncestorRequestDTO lowestAncestorDTO);
     }
 }

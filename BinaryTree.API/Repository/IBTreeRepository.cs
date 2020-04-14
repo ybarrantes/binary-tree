@@ -5,8 +5,8 @@ namespace BinaryTree.API.Repository
 {
     public interface IBTreeRepository
     {
-        public Task SaveBinaryTreeAsync(BTree binaryTree);
+        public Task SaveBTreeAsync(BTree binaryTree);
 
-        public Task<BTree> GetBinaryTreeAsync(string uuid);
+        public Task<BTree> GetBTreeAsync(string uuid);
     }
 }
